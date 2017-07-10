@@ -4,9 +4,7 @@ class ControllerApiCustomer extends Controller {
 		$this->load->language('api/customer');
 
 		// Delete past customer in case there is an error
-		if (isset($this->session->data['customer'])) {
-      unset($this->session->data['customer']);
-		}
+		unset($this->session->data['customer']);
 
 		$json = array();
 
@@ -49,7 +47,7 @@ class ControllerApiCustomer extends Controller {
 				$json['error']['lastname'] = $this->language->get('error_lastname');
 			}
 
-			if ((utf8_strlen($this->request->post['email']) > 96) || (!preg_match($this->config->get('config_mail_regexp'), $this->request->post['email']))) {
+			if ((utf8_strlen($this->request->post['email']) > 96) || (!filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL))) {
 				$json['error']['email'] = $this->language->get('error_email');
 			}
 

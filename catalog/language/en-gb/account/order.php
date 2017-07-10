@@ -2,10 +2,6 @@
 // Heading
 $_['heading_title']         = 'Order History';
 
-// Button
-$_['button_ocstore_payeer_onpay'] = 'Onpay Online via Payeer';
-$_['button_ocstore_yk_onpay']     = 'Onpay Online via Yandex.Kassa';
-
 // Text
 $_['text_account']          = 'Account';
 $_['text_order']            = 'Order Information';

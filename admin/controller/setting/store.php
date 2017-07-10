@@ -28,60 +28,6 @@ class ControllerSettingStore extends Controller {
 
 			$this->model_setting_setting->editSetting('config', $this->request->post, $store_id);
 
-            /* loo functions begin */
-            function loo_parse_queries($file) {
-                $sql_file = $file;
-
-                $contents = file_get_contents($sql_file);
-
-
-                $comment_patterns = array('/\/\*.*(\n)*.*(\*\/)?/' // comments
-                    //'/\s*--.*\n/', //inline comments start with --
-                    //'/\s*#.*\n/', //inline comments start with #
-                );
-                $contents = preg_replace($comment_patterns, "\n", $contents);
-
-                $contents = preg_replace('/(?<=t);(?=\n)/', "{{semicolon_in_text}}", $contents);
-
-                $statements = explode(";\n", $contents);
-//    $statements = preg_replace("/\s/", ' ', $statements);
-
-                $queries = array();
-                foreach ($statements as $query) {
-                    if (trim($query) != '') {
-
-                        $query = str_replace("{{semicolon_in_text}}", ";", $query);
-
-                        //apply db prefix parametr
-                        preg_match("/\?:\w*/i", $query, $matches);
-                        $table_name = str_replace('?:', DB_PREFIX, $matches[0]);
-                        if ( !empty($table_name) ) {
-                            $query = str_replace(array($matches[0], 'key = '), array($table_name, '`key` = '), $query);
-                        }
-
-                        $queries[] = $query;
-                    }
-                }
-
-                return $queries;
-            }
-            /* loo functions end */
-
-
-            // LOO
-			if(file_exists(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql')) {
-				$tmpl_dir = dirname(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
-				
-				if((bool)stristr($tmpl_dir, $this->config->get('config_theme')) == false) {
-					// Parse and Run sql
-					$sql = loo_parse_queries(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
-					foreach ($sql as $query) {
-						$this->db->query($query);
-					}
-				}
-			}
-            // LOO (end)
-
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$this->response->redirect($this->url->link('setting/store', 'token=' . $this->session->data['token'], true));
@@ -103,21 +49,7 @@ class ControllerSettingStore extends Controller {
 			$this->load->model('setting/setting');
 
 			$this->model_setting_setting->editSetting('config', $this->request->post, $this->request->get['store_id']);
-			
-			// LOO 
-			if(is_file(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql')) {
-				$tmpl_dir = dirname(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
-				
-				if((bool)stristr($tmpl_dir, $this->config->get('config_theme')) == false) {
-					// Parse and Run sql
-					$sql = loo_parse_queries(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
-					foreach ($sql as $query) {
-						$this->db->query($query);
-					}
-				}
-			}
-			// LOO (end)
-			
+
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$this->response->redirect($this->url->link('setting/store', 'token=' . $this->session->data['token'] . '&store_id=' . $this->request->get['store_id'], true));

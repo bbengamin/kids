@@ -15,11 +15,7 @@
     <?php } else { ?>
     <input type="radio" name="shipping_method" value="<?php echo $quote['code']; ?>" />
     <?php } ?>
-    <?php echo $quote['title']; ?> - <?php echo $quote['text']; ?>
-    <?php if (isset($quote['description'])) { ?>
-    <br /><small><?php echo $quote['description']; ?></small>
-    <?php } ?>
-  </label>
+    <?php echo $quote['title']; ?> - <?php echo $quote['text']; ?></label>
 </div>
 <?php } ?>
 <?php } else { ?>

@@ -1,7 +1,7 @@
 function getURLVar(key) {
 	var value = [];
 
-	var query = document.location.search.split('?');
+	var query = String(document.location).split('?');
 
 	if (query[1]) {
 		var part = query[1].split('&');
@@ -127,7 +127,7 @@ $(document).ready(function() {
 	});
 
 	// tooltips on hover
-	$('[data-toggle=\'tooltip\']').tooltip({container: 'body',trigger: 'hover'});
+	$('[data-toggle=\'tooltip\']').tooltip({container: 'body'});
 
 	// Makes tooltips work on ajax generated content
 	$(document).ajaxStop(function() {
@@ -220,10 +220,8 @@ var cart = {
 				setTimeout(function () {
 					$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 				}, 100);
-				
-				var now_location = String(document.location.pathname);
 
-				if ((now_location == '/cart/') || (now_location == '/checkout/') || (getURLVar('route') == 'checkout/cart') || (getURLVar('route') == 'checkout/checkout')) {
+				if (getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') {
 					location = 'index.php?route=checkout/cart';
 				} else {
 					$('#cart > ul').load('index.php?route=common/cart/info ul li');

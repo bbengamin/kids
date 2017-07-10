@@ -15,8 +15,6 @@ class ControllerExtensionCaptchaGoogleCaptcha extends Controller {
 
 		$data['site_key'] = $this->config->get('google_captcha_key');
 
-		$data['lang'] = $this->config->get('config_language');
-
         $data['route'] = $this->request->get['route']; 
 
 		return $this->load->view('extension/captcha/google_captcha', $data);

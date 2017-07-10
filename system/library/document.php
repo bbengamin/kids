@@ -6,7 +6,6 @@ class Document {
 	private $links = array();
 	private $styles = array();
 	private $scripts = array();
-	private $og_image;
 
 	public function setTitle($title) {
 		$this->title = $title;
@@ -65,13 +64,5 @@ class Document {
 		} else {
 			return array();
 		}
-	}
-
-	public function setOgImage($image) {
-		$this->og_image = $image;
-	}
-
-	public function getOgImage() {
-		return $this->og_image;
 	}
 }
