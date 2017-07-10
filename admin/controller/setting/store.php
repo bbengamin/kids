@@ -22,24 +22,65 @@ class ControllerSettingStore extends Controller {
 		$this->load->model('setting/store');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-      $this->load->model('localisation/language');
-      $language_info = $this->model_localisation_language->getLanguageByCode($this->request->post['config_language']);
-      $front_language_id = $language_info['language_id'];
-
-      $this->request->post['config_meta_title'] = $this->request->post['config_langdata'][$front_language_id]['meta_title'];
-      $this->request->post['config_meta_description'] = $this->request->post['config_langdata'][$front_language_id]['meta_description'];
-      $this->request->post['config_meta_keyword'] = $this->request->post['config_langdata'][$front_language_id]['meta_keyword'];
-      $this->request->post['config_name'] = $this->request->post['config_langdata'][$front_language_id]['name'];
-      $this->request->post['config_owner'] = $this->request->post['config_langdata'][$front_language_id]['owner'];
-      $this->request->post['config_address'] = $this->request->post['config_langdata'][$front_language_id]['address'];
-      $this->request->post['config_address'] = $this->request->post['config_langdata'][$front_language_id]['open'];
-      $this->request->post['config_address'] = $this->request->post['config_langdata'][$front_language_id]['comment'];
-
 			$store_id = $this->model_setting_store->addStore($this->request->post);
 
 			$this->load->model('setting/setting');
 
 			$this->model_setting_setting->editSetting('config', $this->request->post, $store_id);
+
+            /* loo functions begin */
+            function loo_parse_queries($file) {
+                $sql_file = $file;
+
+                $contents = file_get_contents($sql_file);
+
+
+                $comment_patterns = array('/\/\*.*(\n)*.*(\*\/)?/' // comments
+                    //'/\s*--.*\n/', //inline comments start with --
+                    //'/\s*#.*\n/', //inline comments start with #
+                );
+                $contents = preg_replace($comment_patterns, "\n", $contents);
+
+                $contents = preg_replace('/(?<=t);(?=\n)/', "{{semicolon_in_text}}", $contents);
+
+                $statements = explode(";\n", $contents);
+//    $statements = preg_replace("/\s/", ' ', $statements);
+
+                $queries = array();
+                foreach ($statements as $query) {
+                    if (trim($query) != '') {
+
+                        $query = str_replace("{{semicolon_in_text}}", ";", $query);
+
+                        //apply db prefix parametr
+                        preg_match("/\?:\w*/i", $query, $matches);
+                        $table_name = str_replace('?:', DB_PREFIX, $matches[0]);
+                        if ( !empty($table_name) ) {
+                            $query = str_replace(array($matches[0], 'key = '), array($table_name, '`key` = '), $query);
+                        }
+
+                        $queries[] = $query;
+                    }
+                }
+
+                return $queries;
+            }
+            /* loo functions end */
+
+
+            // LOO
+			if(file_exists(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql')) {
+				$tmpl_dir = dirname(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
+				
+				if((bool)stristr($tmpl_dir, $this->config->get('config_theme')) == false) {
+					// Parse and Run sql
+					$sql = loo_parse_queries(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
+					foreach ($sql as $query) {
+						$this->db->query($query);
+					}
+				}
+			}
+            // LOO (end)
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -57,23 +98,26 @@ class ControllerSettingStore extends Controller {
 		$this->load->model('setting/store');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-      $this->load->model('localisation/language');
-      $language_info = $this->model_localisation_language->getLanguageByCode($this->request->post['config_language']);
-      $front_language_id = $language_info['language_id'];
-
-      $this->request->post['config_meta_title'] = $this->request->post['config_langdata'][$front_language_id]['meta_title'];
-      $this->request->post['config_meta_description'] = $this->request->post['config_langdata'][$front_language_id]['meta_description'];
-      $this->request->post['config_meta_keyword'] = $this->request->post['config_langdata'][$front_language_id]['meta_keyword'];
-      $this->request->post['config_name'] = $this->request->post['config_langdata'][$front_language_id]['name'];
-      $this->request->post['config_owner'] = $this->request->post['config_langdata'][$front_language_id]['owner'];
-      $this->request->post['config_address'] = $this->request->post['config_langdata'][$front_language_id]['address'];
-
 			$this->model_setting_store->editStore($this->request->get['store_id'], $this->request->post);
 
 			$this->load->model('setting/setting');
 
 			$this->model_setting_setting->editSetting('config', $this->request->post, $this->request->get['store_id']);
-
+			
+			// LOO 
+			if(is_file(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql')) {
+				$tmpl_dir = dirname(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
+				
+				if((bool)stristr($tmpl_dir, $this->config->get('config_theme')) == false) {
+					// Parse and Run sql
+					$sql = loo_parse_queries(DIR_CATALOG . 'view/theme/' . $this->request->post['config_theme'] . '/install.sql');
+					foreach ($sql as $query) {
+						$this->db->query($query);
+					}
+				}
+			}
+			// LOO (end)
+			
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$this->response->redirect($this->url->link('setting/store', 'token=' . $this->session->data['token'] . '&store_id=' . $this->request->get['store_id'], true));
@@ -289,6 +333,12 @@ class ControllerSettingStore extends Controller {
 			$data['error_url'] = '';
 		}
 
+		if (isset($this->error['meta_title'])) {
+			$data['error_meta_title'] = $this->error['meta_title'];
+		} else {
+			$data['error_meta_title'] = '';
+		}
+
 		if (isset($this->error['name'])) {
 			$data['error_name'] = $this->error['name'];
 		} else {
@@ -317,12 +367,6 @@ class ControllerSettingStore extends Controller {
 			$data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$data['error_telephone'] = '';
-		}
-
-		if (isset($this->error['meta_title'])) {
-			$data['error_meta_title'] = $this->error['meta_title'];
-		} else {
-			$data['error_meta_title'] = array();
 		}
 
 		if (isset($this->error['customer_group_display'])) {
@@ -378,14 +422,6 @@ class ControllerSettingStore extends Controller {
 		}
 
 		$data['token'] = $this->session->data['token'];
-
-		if (isset($this->request->post['config_langdata'])) {
-			$data['config_langdata'] = $this->request->post['config_langdata'];
-		} elseif (isset($store_info['config_langdata'])) {
-			$data['config_langdata'] = $store_info['config_langdata'];
-		} else {
-			$data['config_langdata'] = '';
-		}
 
 		if (isset($this->request->post['config_url'])) {
 			$data['config_url'] = $this->request->post['config_url'];
@@ -780,17 +816,27 @@ class ControllerSettingStore extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		foreach ($this->request->post['config_langdata'] as $language_id => $value) {
-			if (!$value['name']) {
-				$this->error['name'][$language_id] = $this->language->get('error_name');
-			}
-		}
-
 		if (!$this->request->post['config_url']) {
 			$this->error['url'] = $this->language->get('error_url');
 		}
 
-		if ((utf8_strlen($this->request->post['config_email']) > 96) || !preg_match($this->config->get('config_mail_regexp'), $this->request->post['config_email'])) {
+		if (!$this->request->post['config_meta_title']) {
+			$this->error['meta_title'] = $this->language->get('error_meta_title');
+		}
+
+		if (!$this->request->post['config_name']) {
+			$this->error['name'] = $this->language->get('error_name');
+		}
+
+		if ((utf8_strlen($this->request->post['config_owner']) < 3) || (utf8_strlen($this->request->post['config_owner']) > 64)) {
+			$this->error['owner'] = $this->language->get('error_owner');
+		}
+
+		if ((utf8_strlen($this->request->post['config_address']) < 3) || (utf8_strlen($this->request->post['config_address']) > 256)) {
+			$this->error['address'] = $this->language->get('error_address');
+		}
+
+		if ((utf8_strlen($this->request->post['config_email']) > 96) || !filter_var($this->request->post['config_email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
 
