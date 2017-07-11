@@ -1,0 +1,6 @@
+2017-07-10 20:34:58 - PHP Notice:  Undefined index: headertype in /home/ubuntu/workspace/admin/view/template/extension/module/customisation.tpl on line 88
+2017-07-10 20:34:58 - PHP Notice:  Undefined index: footertype in /home/ubuntu/workspace/admin/view/template/extension/module/customisation.tpl on line 95
+2017-07-10 20:45:04 - PHP Notice:  Undefined index: headertype in /home/ubuntu/workspace/admin/view/template/extension/module/customisation.tpl on line 88
+2017-07-10 20:45:04 - PHP Notice:  Undefined index: footertype in /home/ubuntu/workspace/admin/view/template/extension/module/customisation.tpl on line 95
+2017-07-10 20:49:26 - PHP Notice:  Undefined index: headertype in /home/ubuntu/workspace/admin/view/template/extension/module/customisation.tpl on line 88
+2017-07-10 20:49:26 - PHP Notice:  Undefined index: footertype in /home/ubuntu/workspace/admin/view/template/extension/module/customisation.tpl on line 95

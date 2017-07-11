@@ -1,0 +1,1960 @@
+2017-07-10 20:30:58 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+2017-07-10 20:31:00 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+2017-07-10 20:31:05 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+2017-07-10 20:31:09 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+2017-07-10 20:31:16 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+2017-07-10 20:31:21 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+2017-07-10 20:31:24 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
+MOD: Yourstore changes
+CODE: if ($report) {
+LINE: 926
+CODE: <?php
+LINE: 1
+CODE: $this->request->get['route'] = 'error/not_found';
+NOT FOUND - OPERATIONS ABORTED!
+CODE: if ($report) {
+LINE: 1007
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+NOT FOUND - OPERATIONS ABORTED!
+CODE: public function index() {
+LINE: 7
+CODE: $this->load->model('catalog/category');
+LINE: 97
+LINE: 338
+CODE: if ($category['top']) {
+LINE: 149
+LINE: 212
+CODE: foreach ($children as $child) {
+LINE: 190
+LINE: 303
+CODE: $children_data[] = array(
+LINE: 208
+LINE: 358
+CODE: 'name'     => $category['name'],
+LINE: 229
+LINE: 391
+CODE: return $this->load->view('common/header', $data);
+LINE: 609
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 179
+LINE: 377
+CODE: return $this->load->view('common/footer', $data);
+LINE: 282
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 98
+CODE: return $this->load->view('common/cart', $data);
+LINE: 158
+CODE: return $this->load->view('common/search', $data);
+LINE: 25
+CODE: return $this->load->view('common/currency', $data);
+LINE: 60
+CODE: return $this->load->view('common/language', $data);
+LINE: 56
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 85
+CODE: public function index() {
+LINE: 10
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 177
+CODE: 'product_id'  => $result['product_id'],
+LINE: 196
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['products'][] = array(
+LINE: 184
+CODE: 'product_id'  => $result['product_id'],
+LINE: 203
+CODE: $data['banners'] = array()
+LINE: 31
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->load->model('catalog/category');
+LINE: 45
+CODE: foreach($children as $child) {
+LINE: 73
+CODE: $children_data[] = array(
+LINE: 96
+CODE: $data['categories'][] = array(
+LINE: 184
+CODE: $data['categories'][] = array(
+LINE: 191
+CODE: $data['products'][] = array(
+LINE: 376
+CODE: 'product_id'  => $result['product_id'],
+LINE: 396
+CODE: $data['products'][] = array(
+LINE: 372
+CODE: 'product_id'  => $result['product_id'],
+LINE: 392
+CODE: $data['products'][] = array(
+LINE: 257
+CODE: 'product_id'  => $result['product_id'],
+LINE: 277
+CODE: $data['products'][] = array(
+LINE: 335
+CODE: 'product_id'  => $result['product_id'],
+LINE: 355
+CODE: if ($product_info) {
+LINE: 190
+----------------------------------------------------------------
