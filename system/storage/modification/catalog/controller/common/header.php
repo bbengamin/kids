@@ -97,15 +97,6 @@ class ControllerCommonHeader extends Controller {
             /* end theme's changes */
                     
 
-            /* theme's changes */
-                            $this->load->model('custom/general');
-                $customisation_translation = $this->config->get('customisation_translation_store');
-                $store_id = $this->config->get('config_store_id');
-                $langs = $this->config->get('config_language_id');
-                $theme = $this->config->get('config_theme');
-            /* end theme's changes */
-                    
-
 		$this->load->model('catalog/product');
 
 		$data['categories'] = array();
@@ -179,223 +170,8 @@ class ControllerCommonHeader extends Controller {
 /***end blog changes***/
 			
 
-/***blog changes***/
-				if(isset($this->request->get['route'])) {
-					$route = $this->request->get['route'];
-				} else {
-					$route = 'common/home';
-				}
-
-				$route = explode("/", $route);
-
-				if($this->config->get('simple_blog_status')) {
-    				$this->load->model('simple_blog/article');
-
-    				$count_blog_categories = $this->model_simple_blog_article->getTotalCategories(0);
-                }
-
-				if (isset($count_blog_categories) && $this->config->get('simple_blog_display_category') && $this->config->get('simple_blog_status')) {
-
-					$categories = $this->model_simple_blog_article->getCategories(0);
-
-					foreach ($categories as $category) {
-						if ($category['top']) {
-
-            /***theme's changes***/
-                $category_top_level = $this->model_custom_general->getOptionByCategoryId($category['category_id']);
-                $product_right_slider = $this->model_custom_general->getOption1ByCategoryId($category['category_id'],'ctop');
-                $product_slider_type = $this->model_custom_general->getOption1ByCategoryId($category['category_id'],'vtop');
-
-                $product_width = $this->config->get($theme.'_image_product_width');
-                $product_height = $this->config->get($theme.'_image_product_height');
-                $title = isset($customisation_translation[$langs]["dd_title"][$store_id]) && $customisation_translation[$langs]["dd_title"][$store_id] != '' ? $customisation_translation[$langs]["dd_title"][$store_id] : 'Latest';
-
-                $category_href = $this->url->link('product/category', 'path=' . $category['category_id']);
-                $category_menu_slider = $this->model_custom_general->renderProductsList($product_slider_type, $title, $category['category_id'], $category_href, $product_width, $product_height);
-
-                /***end theme's changes***/
-                    
-							// Level 2
-							$children_data = array();
-
-							$children = $this->model_simple_blog_article->getCategories($category['simple_blog_category_id']);
-
-							foreach ($children as $child) {
-
-                    /***theme's changes***/
-                    $grandchildren_data = array();
-                    $grandchildren = $this->model_catalog_category->getCategories($child['category_id']);
-                    $category_sub_level = $this->model_custom_general->getOptionByCategoryId($child['category_id']);
-
-                    foreach ($grandchildren as $grandchild) {
-
-                    /*very new*/
-                        $grandchildren_data2 = array();
-                        $grandchildren2 = $this->model_catalog_category->getCategories($grandchild['category_id']);
-
-                        foreach ($grandchildren2 as $grandchild2) {
-                            $grandchildren_data2[] = array(
-                                'name'  => $grandchild2['name'],
-                                'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'].'_'.$grandchild['category_id'].'_'.$grandchild2['category_id'])
-                            );
-                        }
-
-                        //var_dump($grandchildren_data2);
-                    /*very new*/
-
-                        $grandchildren_data[] = array(
-                        /*very new*/
-                            'grandchildren2' => $grandchildren_data2,
-                        /*very new*/
-
-                            'name'  => $grandchild['name'],
-                            'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'].'_'.$grandchild['category_id'])
-                        );
-
-                    }
-                    /***end theme's changes***/
-
-                    
-
-								$article_total = $this->model_simple_blog_article->getTotalArticles($child['simple_blog_category_id']);
-                                if ($child['image']) {
-                                    $this->load->model('tool/image');
-
-                                    $image = $this->model_tool_image->resize($child['image'], 205, 130);
-                                } else {
-                                    $image = false;
-                                }
-
-								$children_data[] = array(
-
-                        /***theme's changes***/
-                        'grandchildren' => $grandchildren_data,
-                        'category_sub_level' => $category_sub_level,
-                        /***end theme's changes***/
-
-                    
-                                    'image'  => $image,
-								    'external_link' => $child['external_link'],
-									'name'  => $child['name'],
-									'href'  => $this->url->link('simple_blog/category', 'simple_blog_category_id=' . $category['simple_blog_category_id'] . '_' . $child['simple_blog_category_id'])
-								);
-							}
-
-							$menu_class = 'simple_blog';
-
-							// Level 1
-							$data['categories'][] = array(
-								'name'     => $category['name'],
-
-                    /***theme's changes***/
-                    'category_top_level' => $category_top_level,
-                    'product_right_slider' => $product_right_slider,
-                    'category_menu_slider' => $category_menu_slider,
-                    'category_class' => $this->model_custom_general->getBlogCatClass($children_data),
-                    /***end theme's changes***/
-
-                    
-								'external_link' => $category['external_link'],
-								'children' => $children_data,
-								'menu_class' => $menu_class,
-
-                                'category_class' => $this->model_custom_general->getBlogCatClass($children_data),
-
-								'column'   => $category['blog_category_column'] ? $category['blog_category_column'] : 1,
-								'href'     => $this->url->link('simple_blog/category', 'simple_blog_category_id=' . $category['simple_blog_category_id'])
-							);
-						}
-					}
-
-				}
-				$categories = $this->model_catalog_category->getCategories(0);
-
-/***blog changes***/
-				if(isset($this->request->get['route'])) {
-					$route = $this->request->get['route'];
-				} else {
-					$route = 'common/home';
-				}
-
-				$route = explode("/", $route);
-
-				if($this->config->get('simple_blog_status')) {
-    				$this->load->model('simple_blog/article');
-
-    				$count_blog_categories = $this->model_simple_blog_article->getTotalCategories(0);
-                }
-
-				if (isset($count_blog_categories) && $this->config->get('simple_blog_display_category') && $this->config->get('simple_blog_status')) {
-
-					$categories = $this->model_simple_blog_article->getCategories(0);
-
-					foreach ($categories as $category) {
-						if ($category['top']) {
-							// Level 2
-							$children_data = array();
-
-							$children = $this->model_simple_blog_article->getCategories($category['simple_blog_category_id']);
-
-							foreach ($children as $child) {
-
-								$article_total = $this->model_simple_blog_article->getTotalArticles($child['simple_blog_category_id']);
-                                if ($child['image']) {
-                                    $this->load->model('tool/image');
-
-                                    $image = $this->model_tool_image->resize($child['image'], 205, 130);
-                                } else {
-                                    $image = false;
-                                }
-
-								$children_data[] = array(
-                                    'image'  => $image,
-								    'external_link' => $child['external_link'],
-									'name'  => $child['name'],
-									'href'  => $this->url->link('simple_blog/category', 'simple_blog_category_id=' . $category['simple_blog_category_id'] . '_' . $child['simple_blog_category_id'])
-								);
-							}
-
-							$menu_class = 'simple_blog';
-
-							// Level 1
-							$data['categories'][] = array(
-								'name'     => $category['name'],
-								'external_link' => $category['external_link'],
-								'children' => $children_data,
-								'menu_class' => $menu_class,
-
-                                'category_class' => $this->model_custom_general->getBlogCatClass($children_data),
-
-								'column'   => $category['blog_category_column'] ? $category['blog_category_column'] : 1,
-								'href'     => $this->url->link('simple_blog/category', 'simple_blog_category_id=' . $category['simple_blog_category_id'])
-							);
-						}
-					}
-
-				}
-				$categories = $this->model_catalog_category->getCategories(0);
-/***end blog changes***/
-			
-/***end blog changes***/
-			
-
 		foreach ($categories as $category) {
 			if ($category['top']) {
-
-            /***theme's changes***/
-                $category_top_level = $this->model_custom_general->getOptionByCategoryId($category['category_id']);
-                $product_right_slider = $this->model_custom_general->getOption1ByCategoryId($category['category_id'],'ctop');
-                $product_slider_type = $this->model_custom_general->getOption1ByCategoryId($category['category_id'],'vtop');
-
-                $product_width = $this->config->get($theme.'_image_product_width');
-                $product_height = $this->config->get($theme.'_image_product_height');
-                $title = isset($customisation_translation[$langs]["dd_title"][$store_id]) && $customisation_translation[$langs]["dd_title"][$store_id] != '' ? $customisation_translation[$langs]["dd_title"][$store_id] : 'Latest';
-
-                $category_href = $this->url->link('product/category', 'path=' . $category['category_id']);
-                $category_menu_slider = $this->model_custom_general->renderProductsList($product_slider_type, $title, $category['category_id'], $category_href, $product_width, $product_height);
-
-                /***end theme's changes***/
-                    
 
             /***theme's changes***/
                 $category_top_level = $this->model_custom_general->getOptionByCategoryId($category['category_id']);
@@ -452,54 +228,12 @@ class ControllerCommonHeader extends Controller {
                     /***end theme's changes***/
 
                     
-
-                    /***theme's changes***/
-                    $grandchildren_data = array();
-                    $grandchildren = $this->model_catalog_category->getCategories($child['category_id']);
-                    $category_sub_level = $this->model_custom_general->getOptionByCategoryId($child['category_id']);
-
-                    foreach ($grandchildren as $grandchild) {
-
-                    /*very new*/
-                        $grandchildren_data2 = array();
-                        $grandchildren2 = $this->model_catalog_category->getCategories($grandchild['category_id']);
-
-                        foreach ($grandchildren2 as $grandchild2) {
-                            $grandchildren_data2[] = array(
-                                'name'  => $grandchild2['name'],
-                                'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'].'_'.$grandchild['category_id'].'_'.$grandchild2['category_id'])
-                            );
-                        }
-
-                        //var_dump($grandchildren_data2);
-                    /*very new*/
-
-                        $grandchildren_data[] = array(
-                        /*very new*/
-                            'grandchildren2' => $grandchildren_data2,
-                        /*very new*/
-
-                            'name'  => $grandchild['name'],
-                            'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'].'_'.$grandchild['category_id'])
-                        );
-
-                    }
-                    /***end theme's changes***/
-
-                    
 					$filter_data = array(
 						'filter_category_id'  => $child['category_id'],
 						'filter_sub_category' => true
 					);
 
 					$children_data[] = array(
-
-                        /***theme's changes***/
-                        'grandchildren' => $grandchildren_data,
-                        'category_sub_level' => $category_sub_level,
-                        /***end theme's changes***/
-
-                    
 
                         /***theme's changes***/
                         'grandchildren' => $grandchildren_data,
@@ -515,15 +249,6 @@ class ControllerCommonHeader extends Controller {
 				// Level 1
 				$data['categories'][] = array(
 					'name'     => $category['name'],
-
-                    /***theme's changes***/
-                    'category_top_level' => $category_top_level,
-                    'product_right_slider' => $product_right_slider,
-                    'category_menu_slider' => $category_menu_slider,
-                    'category_class' => $this->model_custom_general->getBlogCatClass($children_data),
-                    /***end theme's changes***/
-
-                    
 
                     /***theme's changes***/
                     'category_top_level' => $category_top_level,
@@ -564,99 +289,6 @@ class ControllerCommonHeader extends Controller {
 			$data['class'] = 'common-home';
 		}
 
-
-        /***theme's changes***/
-        $data['config_telephone'] = $this->config->get('config_telephone');
-        $data['config_fax'] = $this->config->get('config_fax');
-        $data['config_open'] = $this->config->get('config_open');
-
-        $data['layoutid'] = 1;
-        $data['pages_link_url'] = 1;
-        $data['search_block'] = 1;
-        $data['cart_button'] = 1;
-        $data['header_service_buttons'] = 1;
-        $data['top_button'] = 1;
-        $data['css_file'] = 0;
-        $data['headertype'] = 1;
-        $data['customitem_item_url1'] = 'index.php';
-        $data['blog_link_status'] = 1;
-        $data['blog_link_url'] = 'index.php?route=simple_blog/article';
-        $data['pages_link_url'] = 'index.php';
-        $data['pages_status'] = 1;
-        $data['additional_page_checkout_status'] = 1;
-        $data['additional_page_account_status'] = 1;
-        $data['preloader'] = 1;
-        $data['product_catalog_mode'] = 0;
-
-        $data['theme'] = $this->config->get('config_theme');
-        $data['store_id'] = $this->config->get('config_store_id');
-        $data['langs'] = $this->config->get('config_language_id');
-
-        $this->load->model('catalog/information');
-        $this->load->model('catalog/category');
-
-            /* theme's changes */
-                            $this->load->model('custom/general');
-                $customisation_translation = $this->config->get('customisation_translation_store');
-                $store_id = $this->config->get('config_store_id');
-                $langs = $this->config->get('config_language_id');
-                $theme = $this->config->get('config_theme');
-            /* end theme's changes */
-                    
-
-        $customisation_general = $this->config->get('customisation_general_store');
-        $customisation_products = $this->config->get('customisation_products_store');
-        $data['customisation_general'] = $this->config->get('customisation_general_store');
-        $data['customisation_colors'] = $this->config->get('customisation_colors_store');
-        $data['customisation_products'] = $this->config->get('customisation_products_store');
-        $data['customisation_translation'] = $this->config->get('customisation_translation_store');
-
-        $data['layout_id'] = $this->model_custom_general->getCurrentLayout();
-
-        if (isset($customisation_general["headertype"][$store_id])) {
-            if ($data['layout_id'] != 1 && $customisation_general["headertype"][$store_id] == 2) {
-                $data['headertype'] = 1;
-            } else {
-                $data['headertype'] = $customisation_general["headertype"][$store_id];
-            }
-        }
-        if (isset($customisation_general["layoutid"][$store_id])) {$data['layoutid'] = $customisation_general["layoutid"][$store_id];}
-        if (isset($customisation_general["css_file"][$store_id])) {$data['css_file'] = $customisation_general["css_file"][$store_id];}
-        if (isset($customisation_general["preloader"][$store_id])) {$data['preloader'] = $customisation_general["preloader"][$store_id];}
-        if (isset($customisation_general["preloader_html"][$store_id])) {$data['preloader_html'] = html_entity_decode($customisation_general["preloader_html"][$store_id], ENT_QUOTES, 'UTF-8');}
-        if (isset($customisation_general["top_button"][$store_id])) {$data['top_button'] = $customisation_general["top_button"][$store_id];}
-        if (isset($customisation_general["pages_link_url"][$store_id])) {$data['pages_link_url'] = $customisation_general["pages_link_url"][$store_id];}
-        if (isset($customisation_general["search_block"][$store_id])) {$data['search_block'] = $customisation_general["search_block"][$store_id];}
-        if (isset($customisation_general["cart_button"][$store_id])) {$data['cart_button'] = $customisation_general["cart_button"][$store_id];}
-        if (isset($customisation_general["header_service_buttons"][$store_id])) {$data['header_service_buttons'] = $customisation_general["header_service_buttons"][$store_id];}
-        if (isset($customisation_general["customitem_item_url1"][$store_id])) {$data['customitem_item_url1'] = $customisation_general["customitem_item_url1"][$store_id];}
-        if (isset($customisation_general["blog_link_status"][$store_id])) {$data['blog_link_status'] = $customisation_general["blog_link_status"][$store_id];}
-        if (isset($customisation_general["blog_link_url"][$store_id])) {$data['blog_link_url'] = $customisation_general["blog_link_url"][$store_id];}
-        if (isset($customisation_general["pages_status"][$store_id])) {$data['pages_status'] = $customisation_general["pages_status"][$store_id];}
-        if (isset($customisation_general["additional_page_checkout_status"][$store_id])) {$data['additional_page_checkout_status'] = $customisation_general["additional_page_checkout_status"][$store_id];}
-        if (isset($customisation_general["additional_page_account_status"][$store_id])) {$data['additional_page_account_status'] = $customisation_general["additional_page_account_status"][$store_id];}
-        if (isset($customisation_products["product_catalog_mode"][$store_id])) {$data['product_catalog_mode'] = $customisation_products["product_catalog_mode"][$store_id];}
-
-        $data['informations'] = array();
-
-        foreach ($this->model_catalog_information->getInformations() as $result) {
-                $data['informations'][] = array(
-                    'title' => $result['title'],
-                    'information_id' => $result['information_id'],
-                    'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
-                );
-        }
-
-
-        $data['logo_transparent'] = $this->model_custom_general->getLogoTransparent();
-
-
-        $data['css'] = $this->load->controller('common/css');
-        $data['top_slider'] = $this->load->controller('common/top_slider');
-        $data['search_mobile'] = $this->load->controller('common/search_mobile');
-        /***end theme's changes***/
-
-                    
 
         /***theme's changes***/
         $data['config_telephone'] = $this->config->get('config_telephone');

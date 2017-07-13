@@ -56,46 +56,6 @@ class ControllerCommonHome extends Controller {
             $data['promo'] = $this->load->controller('common/promo');
             /***end theme's changes***/
                     
-
-            /***theme's changes***/
-            $langs = $this->config->get('config_language_id');
-            $store_id = $this->config->get('config_store_id');
-
-            $data['layoutid'] = 1;
-            $data['newsletter_popup_status'] = 0;
-            $data['newsletter_placeholder'] = 0;
-            $data['apikey'] = 'test';
-            $data['list_unique_id'] = 'test';
-            $data['newsletter_promo'] = '';
-            $data['newsletter_button'] = '';
-            $data['newsletter_close'] = '';
-
-
-            $data['store_id'] = $this->config->get('config_store_id');
-            $customisation_general = $this->config->get('customisation_general_store');
-            $this->load->model('custom/general');
-
-            $data['layout_id'] = $this->model_custom_general->getCurrentLayout();
-
-            if (isset($customisation_general["layoutid"][$store_id])) {$data['layoutid'] = $customisation_general["layoutid"][$store_id];}
-            if (isset($customisation_general["newsletter_popup_status"][$store_id])) {$data['newsletter_popup_status'] = $customisation_general["newsletter_popup_status"][$store_id];}
-
-            $data['newsletter_placeholder'] = (isset($customisation_general[$langs]["newsletter_placeholder"][$store_id]) ? $customisation_general[$langs]["newsletter_placeholder"][$store_id] : 'Your E-mail...');
-            $data['newsletter_promo'] = html_entity_decode($customisation_general[$langs]["newsletter_promo"][$store_id], ENT_QUOTES, 'UTF-8');
-            $data['newsletter_button'] = isset($customisation_general[$langs]["newsletter_button"][$store_id]) ? $customisation_general[$langs]["newsletter_button"][$store_id] : 'subscribe';
-            $data['newsletter_close'] = $customisation_general[$langs]["newsletter_close"][$store_id];
-
-            $data['config_logo'] = $this->config->get('config_logo');
-            $data['config_name'] = $this->config->get('config_name');
-
-            $data['boxed'] = $this->load->controller('common/boxed');
-            $data['left_home'] = $this->load->controller('common/left_home');
-            $data['left_home2'] = $this->load->controller('common/left_home2');
-            $data['right_home'] = $this->load->controller('common/right_home');
-            $data['right_home2'] = $this->load->controller('common/right_home2');
-            $data['promo'] = $this->load->controller('common/promo');
-            /***end theme's changes***/
-                    
 		$this->response->setOutput($this->load->view('common/home', $data));
 	}
 }

@@ -120,88 +120,8 @@ class ControllerExtensionModuleFeatured extends Controller {
                     $data['lookbook'] = $this->load->controller('common/lookbook');
                     /***end theme's changes***/
                     
-
-/***theme's changes***/
-                    $data['store_id'] = $this->config->get('config_store_id');
-                    $data['lang'] = $this->config->get('config_language_id');
-                    $lang = $this->config->get('config_language_id');
-                    $store_id = $this->config->get('config_store_id');
-                    $this->load->model('custom/general');
-
-                    $data['customisation_slider'] = $this->config->get('customisation_slider_store');
-                    $data['customisation_general'] = $this->config->get('customisation_general_store');
-                    $data['customisation_products'] = $this->config->get('customisation_products_store');
-                    $data['customisation_translation'] = $this->config->get('customisation_translation_store');
-
-                    $data['images'] = array();
-
-                    if ($product_info['image']) {
-                        $image_quickview = $this->model_tool_image->resize($product_info['image'],$this->config->get($this->config->get('config_theme') . '_image_quickview_width'), $this->config->get($this->config->get('config_theme') . '_image_quickview_height'));
-                    } else {
-                        $image_quickview = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_quickview_width'), $this->config->get($this->config->get('config_theme') . '_image_quickview_height'));
-                    }
-                    if ((float)$product_info['special']) {
-                        $discount = '-'.round((($product_info['price'] - $product_info['special'])/$product_info['price'])*100, 0).'%';
-                    } else {
-                        $discount = false;
-                    }
-
-                    $data['additional_images1'] = array();
-                    $results_images = $this->model_catalog_product->getProductImages($product_info['product_id']);
-
-                    if ($results_images) {
-                        foreach ($results_images as $results_image) {
-                            $data['additional_images1'][] = array(
-                                'image' => $this->model_tool_image->resize($results_image['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height')),
-                                'image2x' => $this->model_tool_image->resize($results_image['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width')*2, $this->config->get($this->config->get('config_theme') . '_image_product_height')*2)
-                            );
-                        }
-                    } else {
-                        $data['additional_images1'] = false;
-                    }
-
-
-                    if ($product_info['manufacturer']) {
-                        $brand_logo_path = $this->model_custom_general->getManufacturerImage($product_info['manufacturer_id']);
-                        $brand_logo = $this->model_tool_image->resize($brand_logo_path, $this->config->get($this->config->get('config_theme') . '_image_brand_width'), $this->config->get($this->config->get('config_theme') . '_image_brand_height'));
-                        $brand = urlencode($brand_logo);
-                    } else {
-                        $brand = '';
-                    }
-
-                    $stock_text = isset($customisation_translation[$lang]["text_instock"][$store_id]) && $customisation_translation[$lang]["text_instock"][$store_id] != '' ? $customisation_translation[$lang]["text_instock"][$store_id] : 'In stock';
-
-                    if ($product_info['quantity'] <= 0) {
-                        $stock = $product_info['stock_status'];
-                    } elseif ($this->config->get('config_stock_display')) {
-                        $stock = $product_info['quantity'];
-                    } else {
-                        $stock = $stock_text;
-                    }
-
-                    $data['lookbook'] = $this->load->controller('common/lookbook');
-                    /***end theme's changes***/
-                    
 					$data['products'][] = array(
 						'product_id'  => $product_info['product_id'],
-
-                        /***theme's changes***/
-                        'width_settings'       => $setting['width'],
-                        'height_settings'       => $setting['height'],
-                        'short_description'       => $this->model_custom_general->getProductOption($product_info['product_id'],'short_description',1),
-                        'quantity'  => $product_info['quantity'],
-                        'stock_status'  => $product_info['stock_status'],
-                        'brand'  => $brand,
-                        'image_quickview'  => $image_quickview,
-                        'special_end_date'  => $this->model_custom_general->getDateEnd($product_info['product_id']),
-                        'stock'  => urlencode($stock),
-                        'date_available'  => $product_info['date_available'],
-                        'discount'  => $discount,
-                        'additional_images'  => $data['additional_images1'],
-
-                        /***end theme's changes***/
-
-                    
 
                         /***theme's changes***/
                         'width_settings'       => $setting['width'],

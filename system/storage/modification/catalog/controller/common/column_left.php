@@ -76,13 +76,6 @@ class ControllerCommonColumnLeft extends Controller {
             $data['customisation_translation'] = $this->config->get('customisation_translation_store');
             /***end theme's changes***/
                     
-
-            /***theme's changes***/
-            $data['store_id'] = $this->config->get('config_store_id');
-            $data['lang'] = $this->config->get('config_language_id');
-            $data['customisation_translation'] = $this->config->get('customisation_translation_store');
-            /***end theme's changes***/
-                    
 		return $this->load->view('common/column_left', $data);
 	}
 }

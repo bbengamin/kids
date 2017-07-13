@@ -189,36 +189,6 @@ class ControllerProductProduct extends Controller {
             /***end theme's changes***/
 
                     
-
-            /***theme's changes***/
-            $data['store_id'] = $this->config->get('config_store_id');
-            $data['lang'] = $this->config->get('config_language_id');
-            $this->load->model('custom/general');
-            $data['customisation_products'] = $this->config->get('customisation_products_store');
-            $data['customisation_translation'] = $this->config->get('customisation_translation_store');
-
-            $data['youtube_link'] = $this->model_custom_general->getProductOption($product_id, 'video1');
-            $data['short_descr'] = $this->model_custom_general->getProductOption($product_id, 'short_description', '1');
-
-            $data['tab_title'] = $this->model_custom_general->getProductOption($product_id, 'tab_title');
-            $data['html_product_tab'] = $this->model_custom_general->getProductOption($product_id, 'html_product_tab', '1');
-            $data['custom_right_block'] = $this->model_custom_general->getProductOption($product_id, 'html_product_right', '1');
-            $data['image_size'] = $this->model_custom_general->getOptionProductTable($product_id, 'mainsize');
-
-            $data['manufacturer_image'] = $this->model_custom_general->getManufacturerImageProductPage($product_info['manufacturer_id']);
-            $data['special_end_date'] = $this->model_custom_general->getDateEnd($product_id);
-
-            $data['quantity'] = $product_info['quantity'];
-
-            if (($this->customer->isLogged() || !$this->config->get('config_customer_price')) && (float)$product_info['special']) {
-                $data['d_procent'] = round((($product_info['price'] - $product_info['special'])/$product_info['price'])*100, 0);
-            } else {
-                $data['d_procent'] = false;
-            }
-
-            /***end theme's changes***/
-
-                    
 			$url = '';
 
 			if (isset($this->request->get['path'])) {

@@ -1958,3 +1958,393 @@ LINE: 355
 CODE: if ($product_info) {
 LINE: 190
 ----------------------------------------------------------------
+2017-07-11 21:27:26 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+
+FILE: admin/language/ar/common/column_left.php
+CODE: <?php
+LINE: 11
+CODE: <?php
+LINE: 11
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+
+FILE: catalog/language/ru-ru/common/cart.php
+CODE: $_['text_recurring']
+LINE: 7
+
+FILE: catalog/language/ru-ru/checkout/cart.php
+CODE: $_['text_points']
+LINE: 10
+----------------------------------------------------------------
+2017-07-11 21:27:38 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 49
+LINE: 108
+LINE: 120
+LINE: 165
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 38
+LINE: 40
+LINE: 49
+LINE: 51
+LINE: 60
+LINE: 62
+
+FILE: system/library/template/php.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/tiwg.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 24
+----------------------------------------------------------------
+MOD: Yourstore changes
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($report) {
+LINE: 836
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: <?php
+LINE: 1
+
+FILE: catalog/controller/startup/seo_url.php
+CODE: $this->request->get['route'] = 'error/not_found';
+LINE: 47
+CODE: if ($report) {
+LINE: 917
+
+FILE: admin/language/ar/common/column_left.php
+CODE: <?php
+LINE: 11
+CODE: <?php
+LINE: 11
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: <?php
+LINE: 11
+CODE: $this->url->link('catalog/category', 'token=' . $this->session->data['token'], true)
+LINE: 48
+CODE: $this->url->link('catalog/product', 'token=' . $this->session->data['token'], true)
+LINE: 56
+
+FILE: catalog/controller/error/not_found.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/controller/common/header.php
+CODE: $this->load->model('catalog/category');
+LINE: 97
+CODE: if ($category['top']) {
+LINE: 121
+CODE: foreach ($children as $child) {
+LINE: 162
+CODE: $children_data[] = array(
+LINE: 175
+CODE: 'name'     => $category['name'],
+LINE: 192
+CODE: return $this->load->view('common/header', $data);
+LINE: 308
+CODE: $categories = $this->model_catalog_category->getCategories(0);
+LINE: 170
+
+FILE: catalog/controller/common/footer.php
+CODE: return $this->load->view('common/footer', $data);
+LINE: 178
+
+FILE: catalog/controller/common/home.php
+CODE: $this->response->setOutput($this->load->view('common/home', $data));
+LINE: 58
+
+FILE: catalog/controller/common/cart.php
+CODE: return $this->load->view('common/cart', $data);
+LINE: 150
+
+FILE: catalog/controller/common/search.php
+CODE: return $this->load->view('common/search', $data);
+LINE: 19
+
+FILE: catalog/controller/common/currency.php
+CODE: return $this->load->view('common/currency', $data);
+LINE: 54
+
+FILE: catalog/controller/common/language.php
+CODE: return $this->load->view('common/language', $data);
+LINE: 50
+
+FILE: catalog/controller/common/column_left.php
+CODE: return $this->load->view('common/column_left', $data);
+LINE: 78
+
+FILE: catalog/controller/information/contact.php
+CODE: public function index() {
+LINE: 10
+
+FILE: catalog/controller/extension/module/featured.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $product_info['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/bestseller.php
+CODE: $data['products'][] = array(
+LINE: 115
+CODE: 'product_id'  => $result['product_id'],
+LINE: 134
+
+FILE: catalog/controller/extension/module/special.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/latest.php
+CODE: $data['products'][] = array(
+LINE: 122
+CODE: 'product_id'  => $result['product_id'],
+LINE: 141
+
+FILE: catalog/controller/extension/module/carousel.php
+CODE: $data['banners'] = array()
+LINE: 21
+CODE: $this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		    $this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: catalog/controller/extension/module/category.php
+CODE: $this->load->model('catalog/category');
+LINE: 35
+CODE: foreach($children as $child) {
+LINE: 63
+CODE: $children_data[] = array(
+LINE: 72
+
+FILE: catalog/controller/product/category.php
+CODE: $data['categories'][] = array(
+LINE: 172
+CODE: $data['categories'][] = array(
+LINE: 179
+CODE: $data['products'][] = array(
+LINE: 294
+CODE: 'product_id'  => $result['product_id'],
+LINE: 314
+
+FILE: catalog/controller/product/search.php
+CODE: $data['products'][] = array(
+LINE: 309
+CODE: 'product_id'  => $result['product_id'],
+LINE: 329
+
+FILE: catalog/controller/product/special.php
+CODE: $data['products'][] = array(
+LINE: 194
+CODE: 'product_id'  => $result['product_id'],
+LINE: 214
+
+FILE: catalog/controller/product/manufacturer.php
+CODE: $data['products'][] = array(
+LINE: 272
+CODE: 'product_id'  => $result['product_id'],
+LINE: 292
+
+FILE: catalog/controller/product/product.php
+CODE: if ($product_info) {
+LINE: 190
+
+FILE: catalog/language/ru-ru/common/cart.php
+CODE: $_['text_recurring']
+LINE: 7
+
+FILE: catalog/language/ru-ru/checkout/cart.php
+CODE: $_['text_points']
+LINE: 10
+----------------------------------------------------------------

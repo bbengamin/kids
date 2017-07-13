@@ -11,18 +11,6 @@
 				$_['text_simple_blog_view_report'] = 'Report';
 			
 $_['text_testimonials_parent']              = 'Testimonials';
-
-				$_['text_simple_blogs']	= 'Simple Blog';
-				$_['text_simple_blog_author']	= 'Author';
-				$_['text_simple_blog_category']	= 'Category';
-				$_['text_simple_blog_article']	= 'Article';
-				$_['text_simple_blog_article_comment']	= 'Article Comment';
-				$_['text_simple_blog_setting'] = 'Setting';
-				$_['text_simple_blog_general_setting'] = 'General Setting';
-				$_['text_simple_blog_category_setting'] = 'Category Setting';
-				$_['text_simple_blog_view_report'] = 'Report';
-			
-$_['text_testimonials_parent']              = 'Testimonials';
 // Text
 $_['text_affiliate']                 = 'Affiliates';
 $_['text_api']                       = 'API';

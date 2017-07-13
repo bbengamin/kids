@@ -9,12 +9,6 @@ class ControllerInformationContact extends Controller {
             $data['top_slider'] = $this->load->controller('common/top_slider');
             /***end theme's changes***/
         
-
-            /***theme's changes***/
-            $data['config_email'] = $this->config->get('config_email');
-            $data['top_slider'] = $this->load->controller('common/top_slider');
-            /***end theme's changes***/
-        
 		$this->load->language('information/contact');
 
 		$this->document->setTitle($this->language->get('heading_title'));

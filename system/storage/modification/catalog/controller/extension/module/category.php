@@ -33,16 +33,6 @@ class ControllerExtensionModuleCategory extends Controller {
         /***end theme's changes***/
 
              
-
-        /***theme's changes***/
-        if (isset($parts[2])) {
-            $data['grandchild_id'] = $parts[2];
-        } else {
-            $data['grandchild_id'] = 0;
-        }
-        /***end theme's changes***/
-
-             
 		$this->load->model('catalog/category');
 
 		$this->load->model('catalog/product');
@@ -72,29 +62,9 @@ class ControllerExtensionModuleCategory extends Controller {
                     }
                     /***end theme's changes***/
                     
-
-                    /***theme's changes***/
-                    $grandchildren_data = array();
-                    $grandchildren = $this->model_catalog_category->getCategories($child['category_id']);
-                    foreach ($grandchildren as $grandchild) {
-                        $grandchildren_data[] = array(
-                            'category_id' => $grandchild['category_id'],
-                            'name'  => $grandchild['name'],
-                            'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'].'_'.$grandchild['category_id'])
-                        );
-
-                    }
-                    /***end theme's changes***/
-                    
 					$filter_data = array('filter_category_id' => $child['category_id'], 'filter_sub_category' => true);
 
 					$children_data[] = array(
-
-                        /***theme's changes***/
-                        'grandchildren' => $grandchildren_data,
-                        /***end theme's changes***/
-
-                    
 
                         /***theme's changes***/
                         'grandchildren' => $grandchildren_data,

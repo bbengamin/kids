@@ -6,11 +6,6 @@ class ControllerErrorNotFound extends Controller {
             $this->load->model('custom/general');
             $data['layout_id'] = $this->model_custom_general->getCurrentLayout();
                     
-
-            /* theme's changes */
-            $this->load->model('custom/general');
-            $data['layout_id'] = $this->model_custom_general->getCurrentLayout();
-                    
 		$this->load->language('error/not_found');
 
 		$this->document->setTitle($this->language->get('heading_title'));
